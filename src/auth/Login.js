@@ -33,8 +33,7 @@ class Login extends Component {
     this.setState({[field]: value});
   };
 
-  goBack = () => {
-  };
+  goBack = () => {};
 
   render() {
     const {auth} = this.props;

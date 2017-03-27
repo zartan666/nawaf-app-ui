@@ -4,7 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 import {applyMiddleware, createStore} from 'redux';
 import {AsyncStorage} from 'react-native';
 import {autoRehydrate, persistStore} from 'redux-persist';
-import { createLogger } from 'redux-logger'
+import {createLogger} from 'redux-logger';
 
 const sagaMiddleware = createSagaMiddleware();
 

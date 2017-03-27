@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  TouchableHighlight,
 } from 'react-native';
 import colors from './../../common/colors';
 import Swiper from 'react-native-swiper';
@@ -27,13 +27,14 @@ export default class SplashScene extends React.Component {
           autoplay={false}
           autoplayTimeout={2.5}
           paginationStyle={styles.pagination}
-          loop={false}
-        >
+          loop={false}>
 
           <View
             style={styles.slide}
             title={
-              <Text style={styles.text}>Search properties across gulf countries</Text>
+              <Text style={styles.text}>
+                Search properties across gulf countries
+              </Text>
             }>
             <Image
               resizeMode="contain"
@@ -44,7 +45,9 @@ export default class SplashScene extends React.Component {
           <View
             style={styles.slide}
             title={
-              <Text style={styles.text}>Robust filters for quick search !!!</Text>
+              <Text style={styles.text}>
+                Robust filters for quick search !!!
+              </Text>
             }>
             <Image
               resizeMode="contain"
@@ -55,7 +58,9 @@ export default class SplashScene extends React.Component {
           <View
             style={styles.slide}
             title={
-              <Text style={styles.text}>Browse through thousands of properties</Text>
+              <Text style={styles.text}>
+                Browse through thousands of properties
+              </Text>
             }>
             <Image
               resizeMode="contain"
@@ -68,10 +73,13 @@ export default class SplashScene extends React.Component {
             style={styles.slide}
             title={
               <TouchableHighlight
-                hitSlop={{top:20,left:20,right:20,bottom:20}}
-                onPress={() => {this.props.actions.setBootstrapped(true)}}
-              >
-                <Text style={[styles.text,styles.textUnderline]}>Start Browsing</Text>
+                hitSlop={{top: 20, left: 20, right: 20, bottom: 20}}
+                onPress={() => {
+                  this.props.actions.setBootstrapped(true);
+                }}>
+                <Text style={[styles.text, styles.textUnderline]}>
+                  Start Browsing
+                </Text>
               </TouchableHighlight>
             }>
             <Image
@@ -80,7 +88,6 @@ export default class SplashScene extends React.Component {
               source={require('./../../../assets/splash/screen3.png')}
             />
           </View>
-
 
         </Swiper>
 
@@ -91,11 +98,10 @@ export default class SplashScene extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop:20,
+    paddingTop: 20,
     backgroundColor: '#e6ffff',
   },
-  wrapper: {
-  },
+  wrapper: {},
   slide: {
     flex: 1,
     justifyContent: 'center',
@@ -136,6 +142,6 @@ const styles = StyleSheet.create({
     marginBottom: 3,
   },
   textUnderline: {
-    textDecorationLine:'underline',
-  }
+    textDecorationLine: 'underline',
+  },
 });

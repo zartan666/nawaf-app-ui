@@ -14,7 +14,6 @@ class App extends Component {
 
   componentDidMount() {
     this.props.dispatch(ACTIONS.boot());
-    // NavigationService.setNavigator(this.navigator);
   }
 
   render() {

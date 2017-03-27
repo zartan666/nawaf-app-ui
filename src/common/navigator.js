@@ -5,16 +5,14 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {StackNavigator, TabNavigator} from 'react-navigation';
 import colors from './colors';
 
-const SettingTab = StackNavigator(
-  {
-    SettingsScene: {
-      screen: Login,
-      navigationOptions: {
-        title: () => 'Settings',
-      },
-    }
-  }
-);
+const SettingTab = StackNavigator({
+  SettingsScene: {
+    screen: Login,
+    navigationOptions: {
+      title: () => 'Settings',
+    },
+  },
+});
 
 const Tabs = TabNavigator(
   {
@@ -33,7 +31,6 @@ const Tabs = TabNavigator(
         }),
       },
     },
-
   },
   {
     tabBarPosition: 'bottom',
