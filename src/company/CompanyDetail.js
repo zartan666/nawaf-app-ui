@@ -15,9 +15,7 @@ class CompanyDetail extends Component {
 
   render() {
     let {company} = this.props;
-    return (
-      <CompanyDetailScene company={company} />
-    );
+    return <CompanyDetailScene company={company} />;
   }
 }
 
@@ -34,7 +32,7 @@ function mapDispatchToProps(dispatch) {
 let company = {
   title: 'Company A',
   description: ' Company Description',
-  images: ['http://placehold.it/750x450','http://placehold.it/850x550'],
+  images: ['http://placehold.it/750x450', 'http://placehold.it/850x550'],
   logo: 'http://placehold.it/750x450',
   opensAt: '8AM',
   closesAt: '10PM',

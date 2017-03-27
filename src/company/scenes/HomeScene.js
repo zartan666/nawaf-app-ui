@@ -1,7 +1,7 @@
 /**
  @flow
  */
-import React, {Component,PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {ScrollView, StyleSheet} from 'react-native';
 import AdSwiper from './../components/AdSwiper';
 import OffersList from './../components/OffersList';
