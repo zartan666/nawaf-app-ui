@@ -27,7 +27,7 @@ export default class CompanyDetailScene extends Component {
           <Image source={{uri: company.logo}} style={styles.companyLogo} />
 
           <Text style={styles.companyTitle}>
-            {company.title}
+            {company.name}
           </Text>
 
         </Image>
