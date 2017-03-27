@@ -5,7 +5,7 @@ export default {
   lightGrey: '#f0f0f0',
   darkGrey: '#484848',
   smokeGreyLight: '#e3e7ed',
-  smokeGreyDark: '#5d5f63',
+  smokeGreyDark: '#565656',
   primary: '#6d1c51',
   primaryDark: '#4c338b',
   accent: '#ff1144',

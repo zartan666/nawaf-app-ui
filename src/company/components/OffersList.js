@@ -54,10 +54,11 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 5,
+    paddingVertical: 5,
   },
   listContainer: {
     flexDirection: 'row',
+    paddingVertical:5,
   },
   rowContainer: {
     flex: 1,
@@ -65,11 +66,13 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width / 3,
   },
   headerTitle: {
+    fontFamily:'BodoniSvtyTwoITCTT-BookIta',
     textAlign: 'center',
-    color: 'black',
+    color: colors.smokeGreyDark,
     fontSize: 22,
-    fontWeight: '500',
-    paddingHorizontal: 10,
+    fontWeight: '100',
+    paddingHorizontal: 15,
+    letterSpacing:2
   },
   headerLine: {
     flex: 1,
