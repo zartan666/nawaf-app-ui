@@ -4,6 +4,7 @@
 import React, {Component,PropTypes} from 'react';
 import {Image, ScrollView, StyleSheet, View, Dimensions, Text} from 'react-native';
 import colors from './../../common/colors';
+import Separator from './../../components/Separator';
 
 export default class CompanyDetailScene extends Component {
   static propTypes = {
@@ -34,7 +35,30 @@ export default class CompanyDetailScene extends Component {
 
         </Image>
 
+        <View style={styles.facilityContainer}>
+
+          {
+            company.facilities.map((facility,index) =>this.renderFacilityItem(facility,index))
+          }
+
+        </View>
       </ScrollView>
+    );
+  }
+
+  renderFacilityItem = (item,index) => {
+    return (
+      <View style={styles.facilityRowContainer} key={index}>
+        <View style={styles.facilityRowContent}>
+          <Text style={styles.facilityName}>
+            {item.name}
+          </Text>
+          <Text style={styles.facilityValue}>
+            {item.value}
+          </Text>
+        </View>
+        <Separator/>
+      </View>
     );
   }
 }
@@ -65,5 +89,25 @@ const styles = StyleSheet.create({
     color:colors.white,
     backgroundColor:'transparent',
     paddingVertical:3
+  },
+  facilityContainer:{
+    flex:1,
+    backgroundColor:'white',
+    marginVertical:10
+  },
+  facilityRowContainer: {
+    flex:1,
+  },
+  facilityRowContent: {
+    flex:1,
+    flexDirection:'row',
+    padding:10
+  },
+  facilityName: {
+    color:colors.accent,
+    flex:1
+  },
+  facilityValue:{
+    color:colors.smokeGrayDark,
   }
 });
