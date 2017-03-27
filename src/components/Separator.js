@@ -10,7 +10,7 @@ Separator.propTyes = {
 
 const styles = StyleSheet.create({
   container: {
-    height: 0.5,
+    height: 0.3,
     backgroundColor: colors.smokeGreyLight,
   },
 });

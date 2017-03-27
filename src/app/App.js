@@ -13,16 +13,16 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.props.dispatch(ACTIONS.boot());
+    // this.props.dispatch(ACTIONS.boot());
   }
 
   render() {
     const {app} = this.props;
-    if (!app.booted) return null;
+    // if (!app.booted) return null;
 
-    if (!app.bootstrapped) {
-      return <Splash />;
-    }
+    // if (!app.bootstrapped) {
+    //   return <Splash />;
+    // }
 
     return (
       <View style={{flex: 1}}>
