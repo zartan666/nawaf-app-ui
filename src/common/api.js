@@ -36,26 +36,3 @@ export function fetchAPI(url, method = 'GET', body = null, isBlob = false) {
       return Promise.reject(`${e}`);
     });
 }
-
-// export function xhrAPI(url, body) {
-//   return new Promise(function(resolve, reject) {
-//     const xhr = new XMLHttpRequest();
-//     xhr.open('POST', url);
-//     xhr.onload = () => {
-//       if (xhr.status === 200) {
-//         const response = JSON.parse(xhr.response);
-//         if (response.success) {
-//           resolve(response);
-//         } else {
-//           reject(response.message);
-//         }
-//       } else {
-//         reject(`Unknown Error : ${xhr.statusText}`);
-//       }
-//     };
-//     xhr.onerror = () => {
-//       reject(`Unknown Error : ${xhr.statusText}`);
-//     };
-//     xhr.send(body);
-//   });
-// }

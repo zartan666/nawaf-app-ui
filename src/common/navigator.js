@@ -1,15 +1,16 @@
 import React from 'react';
+import Home from './../company/Home';
 import Login from './../auth/Login';
 import Register from './../auth/Register';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {StackNavigator, TabNavigator} from 'react-navigation';
 import colors from './colors';
 
-const SettingTab = StackNavigator({
+const HomeTab = StackNavigator({
   SettingsScene: {
-    screen: Login,
+    screen: Home,
     navigationOptions: {
-      title: () => 'Settings',
+      title: () => 'Home',
     },
   },
 });
@@ -17,7 +18,7 @@ const SettingTab = StackNavigator({
 const Tabs = TabNavigator(
   {
     PropertyTab: {
-      screen: SettingTab,
+      screen: HomeTab,
       navigationOptions: {
         tabBar: () => ({
           label: 'Home',
