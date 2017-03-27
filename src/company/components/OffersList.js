@@ -4,6 +4,7 @@
 import React, {Component, PropTypes} from 'react';
 import {Dimensions, StyleSheet, Text, View} from 'react-native';
 import colors from './../../common/colors';
+import SectionHeader from './SectionHeader';
 
 export default class OffersList extends Component {
   static propTypes = {
@@ -21,13 +22,7 @@ export default class OffersList extends Component {
   };
 
   renderHeader = title => {
-    return (
-      <View style={styles.headerContainer}>
-        <View style={styles.headerLine} />
-        <Text style={styles.headerTitle}>{title}</Text>
-        <View style={styles.headerLine} />
-      </View>
-    );
+    return <SectionHeader title={title} />;
   };
 
   render() {

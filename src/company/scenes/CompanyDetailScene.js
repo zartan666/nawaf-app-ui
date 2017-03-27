@@ -2,16 +2,11 @@
  @flow
  */
 import React, {Component, PropTypes} from 'react';
-import {
-  Image,
-  ScrollView,
-  StyleSheet,
-  View,
-  Dimensions,
-  Text,
-} from 'react-native';
+import {Image, ScrollView, StyleSheet, View, Text} from 'react-native';
 import colors from './../../common/colors';
 import Separator from './../../components/Separator';
+import SectionHeader from '../components/SectionHeader';
+import map from 'lodash/map';
 
 export default class CompanyDetailScene extends Component {
   static propTypes = {
@@ -37,23 +32,64 @@ export default class CompanyDetailScene extends Component {
 
         </Image>
 
-        <View style={styles.facilityContainer}>
+        <View style={styles.section}>
           {company.facilities.map((facility, index) =>
             this.renderFacilityItem(facility, index))}
+        </View>
+
+        <View style={styles.section}>
+
+          <Text style={styles.sectionTitle}>
+            {`${company.name} Services`}
+          </Text>
+
+          {company.services.map((service, index) =>
+            this.renderServiceItem(service, index))}
+
         </View>
 
       </ScrollView>
     );
   }
 
+  renderServiceItem = (item, index) => {
+    console.log('item', item);
+
+    map(item => console.log('wa', item));
+
+    return (
+      <View style={styles.rowContainer} key={index}>
+
+        <SectionHeader title={item.name} />
+
+        {item.items.map((service,serviceIndex) => {
+          return (
+            <View style={styles.rowContainer} key={serviceIndex}>
+              <View style={styles.rowContent}>
+                <Text style={styles.itemName}>
+                  {service.name}
+                </Text>
+                <Text style={styles.itemValue}>
+                  {service.price}
+                </Text>
+              </View>
+              <Separator />
+            </View>
+          )
+        })}
+
+      </View>
+    );
+  };
+
   renderFacilityItem = (item, index) => {
     return (
-      <View style={styles.facilityRowContainer} key={index}>
-        <View style={styles.facilityRowContent}>
-          <Text style={styles.facilityName}>
+      <View style={styles.rowContainer} key={index}>
+        <View style={styles.rowContent}>
+          <Text style={styles.itemName}>
             {item.name}
           </Text>
-          <Text style={styles.facilityValue}>
+          <Text style={styles.itemValue}>
             {item.value}
           </Text>
         </View>
@@ -88,24 +124,29 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     paddingVertical: 3,
   },
-  facilityContainer: {
-    flex: 1,
-    backgroundColor: 'white',
-    marginVertical: 10,
-  },
-  facilityRowContainer: {
+  rowContainer: {
     flex: 1,
   },
-  facilityRowContent: {
+  rowContent: {
     flex: 1,
     flexDirection: 'row',
     padding: 10,
   },
-  facilityName: {
+  itemName: {
     color: colors.accent,
     flex: 1,
   },
-  facilityValue: {
+  itemValue: {
     color: colors.smokeGrayDark,
+  },
+  sectionTitle: {
+    fontSize: 15,
+    color: colors.accent,
+    padding: 10,
+  },
+  section: {
+    flex: 1,
+    backgroundColor: 'white',
+    marginVertical: 10,
   },
 });

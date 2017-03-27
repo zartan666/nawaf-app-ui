@@ -30,7 +30,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 let company = {
-  title: 'Company A',
+  name: 'Company A',
   description: ' Company Description',
   images: ['http://placehold.it/750x450', 'http://placehold.it/850x550'],
   logo: 'http://placehold.it/750x450',
@@ -38,18 +38,28 @@ let company = {
   closesAt: '10PM',
   services: [
     {
-      facial: [
+      name: 'facial',
+      items: [
         {
-          title: 'Hair Facial',
+          name: 'Hair Facial',
           price: 200,
+        },
+        {
+          name: 'Chin Facial',
+          price: 100,
         },
       ],
     },
     {
-      bleaching: [
+      name: 'Bleaching',
+      items: [
         {
-          title: 'Hair Bleach',
-          price: 400,
+          name: 'Hair Bleaching',
+          price: 200,
+        },
+        {
+          name: 'Chin Bleaching',
+          price: 100,
         },
       ],
     },
