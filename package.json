@@ -4,7 +4,9 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
+		"test": "jest",
+		"flow": "flow",
+		"prettier": "prettier --write --no-bracket-spacing --single-quote --jsx-bracket-same-line --trailing-comma all --print-width 80 'src/**/*.js'"
 	},
 	"dependencies": {
 		"lodash": "^4.17.4",
@@ -18,10 +20,10 @@
 		"react-navigation": "^1.0.0-beta.7",
 		"react-redux": "^5.0.3",
 		"redux": "^3.6.0",
-		"redux-logger": "^2.10.2",
+		"redux-logger": "^3.0.0",
 		"redux-persist": "^4.5.0",
 		"redux-saga": "^0.14.3",
-		"reselect": "^2.5.4"
+		"reselect": "^3.0.0"
 	},
 	"devDependencies": {
 		"babel-jest": "19.0.0",
@@ -33,6 +35,12 @@
 		"prettier": "^0.22.0"
 	},
 	"jest": {
-		"preset": "react-native"
+		"preset": "react-native",
+		"setupFiles": [
+			"<rootDir>/jest.setup.js"
+		],
+		"transformIgnorePatterns": [
+			"node_modules/(?!(jest-)?react-native|react-navigation)"
+		]
 	}
 }
