@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     flexDirection: 'row',
-    paddingVertical:5,
+    paddingVertical: 5,
   },
   rowContainer: {
     flex: 1,
@@ -66,25 +66,25 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width / 3,
   },
   headerTitle: {
-    fontFamily:'BodoniSvtyTwoITCTT-BookIta',
+    fontFamily: 'BodoniSvtyTwoITCTT-BookIta',
     textAlign: 'center',
-    color: colors.smokeGreyDark,
+    color: colors.smokeGrayDark,
     fontSize: 22,
     fontWeight: '100',
     paddingHorizontal: 15,
-    letterSpacing:2
+    letterSpacing: 2,
   },
   headerLine: {
     flex: 1,
     height: 0.5,
-    backgroundColor: colors.smokeGreyLight,
+    backgroundColor: colors.smokeGrayLight,
   },
   image: {
     backgroundColor: '#9DD6EB',
     height: Dimensions.get('window').width / 3,
   },
   title: {
-    color: colors.smokeGreyDark,
+    color: colors.smokeGrayDark,
     fontSize: 17,
     fontWeight: '100',
     textAlign: 'center',

@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from './../company/Home';
+import CompanyDetail from './../company/CompanyDetail';
 import Login from './../auth/Login';
 import Register from './../auth/Register';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -8,7 +9,7 @@ import colors from './colors';
 
 const HomeTab = StackNavigator({
   SettingsScene: {
-    screen: Home,
+    screen: CompanyDetail,
     navigationOptions: {
       title: () => 'Home',
     },
