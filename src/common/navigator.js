@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './../company/Home';
 import CompanyDetail from './../company/CompanyDetail';
+import AppointmentCreate from './../company/AppointmentCreate';
 import CompanyList from './../company/CompanyList';
 import Login from './../auth/Login';
 import Register from './../auth/Register';
@@ -11,7 +12,7 @@ import colors from './colors';
 const HomeTab = StackNavigator(
   {
     SettingsScene: {
-      screen: CompanyList,
+      screen: AppointmentCreate,
       navigationOptions: {
         title: () => 'Home',
       },
