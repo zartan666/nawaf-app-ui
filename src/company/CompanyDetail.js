@@ -1,12 +1,11 @@
 /**
  * @flow
  */
-import React, {Component, PropTypes} from 'react';
-import {StyleSheet, View} from 'react-native';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {ACTIONS} from './common/actions';
-import CompanyDetailScene from './scenes/CompanyDetailScene';
+import React, {Component, PropTypes} from "react";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import {ACTIONS} from "./common/actions";
+import CompanyDetailScene from "./scenes/CompanyDetailScene";
 
 class CompanyDetail extends Component {
   static propTypes = {
@@ -18,12 +17,6 @@ class CompanyDetail extends Component {
     return <CompanyDetailScene company={company} />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 function mapDispatchToProps(dispatch) {
   return {actions: bindActionCreators({...ACTIONS}, dispatch)};
@@ -38,7 +31,7 @@ let company = {
   closesAt: '10PM',
   services: [
     {
-      name: 'facial',
+      name: 'Facial',
       items: [
         {
           name: 'Hair Facial',

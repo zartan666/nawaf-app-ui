@@ -7,6 +7,7 @@ import colors from './../../common/colors';
 import Separator from './../../components/Separator';
 import SectionHeader from '../components/SectionHeader';
 import map from 'lodash/map';
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default class CompanyDetailScene extends Component {
   static propTypes = {
@@ -23,14 +24,32 @@ export default class CompanyDetailScene extends Component {
           source={{uri: company.images[0]}}
           style={styles.companyImage}
           resizeMode="cover">
+        </Image>
 
+        <View style={styles.companyInfoContainer}>
           <Image source={{uri: company.logo}} style={styles.companyLogo} />
 
           <Text style={styles.companyTitle}>
             {company.name}
           </Text>
 
-        </Image>
+          <Text style={styles.openText}>Open</Text>
+
+        </View>
+
+        <View style={styles.section}>
+          <View style={styles.rowContent}>
+            <View style={{flex:1}}>
+              <Text style={styles.sectionTitle}>
+                Promotions
+              </Text>
+              <Text style={styles.itemName}>
+                List available promotions
+              </Text>
+            </View>
+            <Ionicons name="ios-arrow-forward" color={colors.smokeGrayLight} size={40} />
+          </View>
+        </View>
 
         <View style={styles.section}>
           {company.facilities.map((facility, index) =>
@@ -38,11 +57,11 @@ export default class CompanyDetailScene extends Component {
         </View>
 
         <View style={styles.section}>
-
-          <Text style={styles.sectionTitle}>
-            {`${company.name} Services`}
-          </Text>
-
+          <View style={styles.rowContent}>
+            <Text style={styles.sectionTitle}>
+              {`${company.name} Services`}
+            </Text>
+          </View>
           {company.services.map((service, index) =>
             this.renderServiceItem(service, index))}
 
@@ -70,7 +89,7 @@ export default class CompanyDetailScene extends Component {
                   {service.name}
                 </Text>
                 <Text style={styles.itemValue}>
-                  {service.price}
+                  {service.price} KD
                 </Text>
               </View>
               <Separator />
@@ -113,16 +132,32 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   companyLogo: {
-    width: 100,
-    height: 100,
+    width: 75,
+    height: 75,
     borderColor: 'white',
     borderWidth: 2,
     borderRadius: 20,
+    marginTop:-20
+  },
+  companyInfoContainer:{
+    flexDirection:'row',
+    alignItems:'center',
+    paddingHorizontal:20,
+    paddingVertical:0,
+    backgroundColor:'white',
+    paddingBottom:10
   },
   companyTitle: {
-    color: colors.white,
+    flex:1,
+    color: colors.smokeGrayDark,
     backgroundColor: 'transparent',
-    paddingVertical: 3,
+    paddingHorizontal:10,
+    fontSize:17
+  },
+  openText:{
+    color:colors.green,
+    fontWeight:'500',
+    fontSize:16
   },
   rowContainer: {
     flex: 1,
@@ -131,22 +166,28 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     padding: 10,
+    alignItems:'center'
   },
   itemName: {
-    color: colors.accent,
+    color: colors.black,
     flex: 1,
+    fontWeight:'100'
   },
   itemValue: {
     color: colors.smokeGrayDark,
   },
   sectionTitle: {
-    fontSize: 15,
+    fontSize: 17,
     color: colors.accent,
-    padding: 10,
+    textShadowColor:colors.smokeGrayLight,
+    textShadowOffset:{width:1,height:1},
+    paddingBottom:5
   },
   section: {
     flex: 1,
     backgroundColor: 'white',
     marginVertical: 10,
   },
+
+
 });
