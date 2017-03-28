@@ -1,16 +1,10 @@
-import React, {Component, PropTypes} from 'react';
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableHighlight,
-  View,
-} from 'react-native';
-import colors from './../../common/colors';
-import NavBar from './../../components/NavBar';
-import NavButton from './../../components/NavButton';
-import Separator from './../../components/Separator';
-import { locale, isRTL } from './../../app/common/locale';
+import React, {Component, PropTypes} from "react";
+import {StyleSheet, Text, TextInput, TouchableHighlight, View} from "react-native";
+import colors from "./../../common/colors";
+import NavBar from "./../../components/NavBar";
+import NavButton from "./../../components/NavButton";
+import Separator from "./../../components/Separator";
+import {isRTL, locale} from "./../../app/common/locale";
 
 export default class LoginScene extends Component {
   static propTypes = {

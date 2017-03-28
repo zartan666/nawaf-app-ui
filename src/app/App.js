@@ -15,7 +15,7 @@ class App extends Component {
 
   componentDidMount() {
     // this.props.dispatch(ACTIONS.boot());
-    //   I18nManager.forceRTL(false);
+      I18nManager.forceRTL(true);
   }
 
   render() {

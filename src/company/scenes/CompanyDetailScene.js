@@ -48,7 +48,7 @@ export default class CompanyDetailScene extends Component {
                 List available promotions
               </Text>
             </View>
-            <Ionicons name="ios-arrow-forward" color={colors.smokeGrayLight} size={40} style={{height:40}} />
+            <Ionicons name={isRTL ? "ios-arrow-back" : "ios-arrow-forward"} color={colors.smokeGrayLight} size={40} style={{height:40}} />
           </View>
         </View>
 
@@ -89,7 +89,7 @@ export default class CompanyDetailScene extends Component {
                 <Text style={styles.itemValue}>
                   {service.price} KD
                 </Text>
-                <Ionicons name="ios-arrow-forward" color={colors.smokeGrayLight} size={30} style={{paddingLeft:10, height:30}} />
+                <Ionicons name={isRTL ? "ios-arrow-back" : "ios-arrow-forward"} color={colors.smokeGrayLight} size={30} style={{paddingLeft:10, height:30}} />
               </View>
               <Separator />
             </View>
@@ -144,13 +144,12 @@ const styles = StyleSheet.create({
     alignItems:'center',
     paddingHorizontal:20,
     paddingVertical:0,
-    backgroundColor:'blue',
+    backgroundColor:'white',
     paddingBottom:10,
   },
   companyTitle: {
     flex:1,
     color: colors.smokeGrayDark,
-    backgroundColor: 'gray',
     paddingHorizontal:10,
     fontSize:17,
     textAlign:'left'
@@ -159,7 +158,6 @@ const styles = StyleSheet.create({
     color:colors.green,
     fontWeight:'500',
     fontSize:16,
-    backgroundColor:'yellow'
   },
   rowContainer: {
     flex: 1,
@@ -173,7 +171,8 @@ const styles = StyleSheet.create({
   itemName: {
     color: colors.black,
     flex: 1,
-    fontWeight:'100'
+    fontWeight:'100',
+    textAlign:'left'
   },
   itemValue: {
     color: colors.smokeGrayDark,
@@ -183,7 +182,9 @@ const styles = StyleSheet.create({
     color: colors.accent,
     textShadowColor:colors.smokeGrayLight,
     textShadowOffset:{width:1,height:1},
-    paddingBottom:5
+    paddingBottom:5,
+    textAlign:'left'
+
   },
   section: {
     flex: 1,

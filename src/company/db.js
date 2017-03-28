@@ -1,10 +1,11 @@
 export const company = {
   name: 'Company A',
-  description: ' Company Description',
+  description_en: 'Company Description',
+  description_ar: ' شركة ا  شركة ا  شركة ا  شركة ا ',
   images: ['http://placehold.it/750x450', 'http://placehold.it/850x550'],
   logo: 'http://placehold.it/750x450',
-  opensAt: '8AM',
-  closesAt: '10PM',
+  opensAt: '08:00',
+  closesAt: '22:00',
   services: [
     {
       name: 'Facial',
