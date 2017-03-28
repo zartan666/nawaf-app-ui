@@ -10,6 +10,7 @@ import CompanyListScene from './scenes/CompanyListScene';
 import {companies} from './db';
 
 class CompanyList extends Component {
+
   static propTypes = {
     navigation: PropTypes.object.isRequired,
   };

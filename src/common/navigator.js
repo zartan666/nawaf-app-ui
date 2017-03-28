@@ -10,17 +10,19 @@ import colors from './colors';
 
 const HomeTab = StackNavigator({
   SettingsScene: {
-    screen: CompanyList,
+    screen: CompanyDetail,
     navigationOptions: {
       title: () => 'Home',
     },
   },
+},{
+  headerMode: 'screen'
 });
 
 const Tabs = TabNavigator(
   {
-    PropertyTab: {
-      screen: CompanyDetail,
+    HomeTab: {
+      screen: HomeTab,
       navigationOptions: {
         tabBar: () => ({
           label: 'Home',
@@ -28,7 +30,7 @@ const Tabs = TabNavigator(
             <Ionicons
               name={focused ? 'ios-home' : 'ios-home-outline'}
               size={26}
-              style={{color: focused ? colors.accent : colors.smokeGreyDark}}
+              style={{color: focused ? colors.accent : colors.smokeGrayDark}}
             />
           ),
         }),
@@ -47,6 +49,7 @@ const Tabs = TabNavigator(
       cardStack: {
         gesturesEnabled: false,
       },
+      headerMode: 'screen',
     },
   },
 );

@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 12,
-    color: colors.smokeGreyDark,
+    color: colors.smokeGrayDark,
     marginTop: 15,
     marginBottom: 2,
     fontWeight: '100',

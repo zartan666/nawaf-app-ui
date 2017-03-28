@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {View} from 'react-native';
+import {View,I18nManager} from 'react-native';
 import {connect} from 'react-redux';
 import {ACTIONS} from './common/actions';
 import {addNavigationHelpers} from 'react-navigation';
@@ -14,6 +14,7 @@ class App extends Component {
 
   componentDidMount() {
     // this.props.dispatch(ACTIONS.boot());
+      I18nManager.forceRTL(true);
   }
 
   render() {

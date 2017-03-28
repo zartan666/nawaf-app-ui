@@ -5,11 +5,13 @@ import {
   TextInput,
   TouchableHighlight,
   View,
+  I18nManager
 } from 'react-native';
 import colors from './../../common/colors';
 import NavBar from './../../components/NavBar';
 import NavButton from './../../components/NavButton';
 import Separator from './../../components/Separator';
+import locale from './../../app/common/locale'
 
 export default class LoginScene extends Component {
   static propTypes = {
@@ -22,7 +24,13 @@ export default class LoginScene extends Component {
     busy: PropTypes.bool.isRequired,
   };
 
+
+
   render() {
+    console.log('l',locale);
+    const {localeIdentifier, isRTL} = I18nManager;
+    console.log('lo',localeIdentifier);
+    console.log('isRTL',isRTL);
     const {
       email,
       password,
@@ -49,7 +57,7 @@ export default class LoginScene extends Component {
 
         <View style={styles.container}>
 
-          <Text style={styles.label}>EMAIL</Text>
+          <Text style={styles.label}>{locale.t('email')}</Text>
           <TextInput
             style={[styles.textInput]}
             onChangeText={value => onFieldChange('email', value)}
@@ -126,7 +134,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 12,
-    color: colors.smokeGreyDark,
+    color: colors.smokeGrayDark,
     marginTop: 15,
     marginBottom: 2,
     fontWeight: '100',
@@ -154,7 +162,7 @@ const styles = StyleSheet.create({
   },
   link: {
     marginTop: 20,
-    color: colors.smokeGreyDark,
+    color: colors.smokeGrayDark,
     fontSize: 13,
   },
   button: {
