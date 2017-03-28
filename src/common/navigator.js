@@ -63,6 +63,6 @@ export default (Navigator = StackNavigator(
   {
     headerMode: 'none',
     mode: 'modal',
-    initialRouteName: 'Tabs',
+    initialRouteName: 'Login',
   },
 ));

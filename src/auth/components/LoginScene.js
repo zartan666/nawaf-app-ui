@@ -5,13 +5,12 @@ import {
   TextInput,
   TouchableHighlight,
   View,
-  I18nManager
 } from 'react-native';
 import colors from './../../common/colors';
 import NavBar from './../../components/NavBar';
 import NavButton from './../../components/NavButton';
 import Separator from './../../components/Separator';
-import locale from './../../app/common/locale'
+import { locale, isRTL } from './../../app/common/locale';
 
 export default class LoginScene extends Component {
   static propTypes = {
@@ -24,13 +23,7 @@ export default class LoginScene extends Component {
     busy: PropTypes.bool.isRequired,
   };
 
-
-
   render() {
-    console.log('l',locale);
-    const {localeIdentifier, isRTL} = I18nManager;
-    console.log('lo',localeIdentifier);
-    console.log('isRTL',isRTL);
     const {
       email,
       password,
@@ -138,6 +131,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 2,
     fontWeight: '100',
+    textAlign:'left'
   },
   textCenter: {
     alignSelf: 'center',
@@ -153,6 +147,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     fontSize: 14,
     color: 'black',
+    textAlign: isRTL ? 'right' : 'left',
+    writingDirection: isRTL ?'rtl' : 'ltr',
   },
   title: {
     fontSize: 20,

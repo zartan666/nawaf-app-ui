@@ -6,8 +6,8 @@ import {Image, ScrollView, StyleSheet, View, Text} from 'react-native';
 import colors from './../../common/colors';
 import Separator from './../../components/Separator';
 import SectionHeader from '../components/SectionHeader';
-import map from 'lodash/map';
 import Ionicons from "react-native-vector-icons/Ionicons";
+import {isRTL} from './../../app/common/locale';
 
 export default class CompanyDetailScene extends Component {
   static propTypes = {
@@ -15,6 +15,7 @@ export default class CompanyDetailScene extends Component {
   };
 
   render() {
+    console.log('isRtl',isRTL);
     let {company} = this.props;
 
     return (
@@ -138,24 +139,27 @@ const styles = StyleSheet.create({
     marginTop:-20
   },
   companyInfoContainer:{
+    flex:1,
     flexDirection:'row',
     alignItems:'center',
     paddingHorizontal:20,
     paddingVertical:0,
-    backgroundColor:'white',
-    paddingBottom:10
+    backgroundColor:'blue',
+    paddingBottom:10,
   },
   companyTitle: {
     flex:1,
     color: colors.smokeGrayDark,
-    backgroundColor: 'transparent',
+    backgroundColor: 'gray',
     paddingHorizontal:10,
-    fontSize:17
+    fontSize:17,
+    textAlign:'left'
   },
   openText:{
     color:colors.green,
     fontWeight:'500',
-    fontSize:16
+    fontSize:16,
+    backgroundColor:'yellow'
   },
   rowContainer: {
     flex: 1,

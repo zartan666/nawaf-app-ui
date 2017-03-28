@@ -6,6 +6,7 @@ import {addNavigationHelpers} from 'react-navigation';
 import Navigator from './../common/navigator';
 import AppNotification from './../app/AppNotification';
 import Splash from './../app/Splash';
+import {isRTL,locale} from './../app/common/locale';
 
 class App extends Component {
   static propTypes = {
@@ -14,7 +15,7 @@ class App extends Component {
 
   componentDidMount() {
     // this.props.dispatch(ACTIONS.boot());
-      I18nManager.forceRTL(true);
+    //   I18nManager.forceRTL(false);
   }
 
   render() {

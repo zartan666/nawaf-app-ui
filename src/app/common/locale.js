@@ -1,8 +1,9 @@
+import React from 'react';
+import {I18nManager} from 'react-native';
 import I18n from 'react-native-i18n';
 
 import en from './../../../assets/locale/en';
 import ar from './../../../assets/locale/ar';
-let locale;
 
 I18n.fallbacks = true;
 
@@ -11,6 +12,7 @@ I18n.translations = {
   ar:ar,
 };
 
-I18n.locale = 'ar';
+I18n.locale = I18nManager.isRTL ? 'ar' : 'en';
 
-export default locale = I18n;
+export const locale = I18n;
+export const isRTL = I18nManager.isRTL;
