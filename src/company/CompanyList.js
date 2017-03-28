@@ -10,22 +10,13 @@ import CompanyListScene from './scenes/CompanyListScene';
 import {companies} from './db';
 
 class CompanyList extends Component {
-
   static propTypes = {
     navigation: PropTypes.object.isRequired,
   };
 
   render() {
     let {companies} = this.props;
-    return (
-      <View style={styles.container}>
-
-        <CompanyListScene
-          companies={companies}
-        />
-
-      </View>
-    );
+    return <CompanyListScene companies={companies} />;
   }
 }
 
@@ -41,7 +32,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    companies:companies
+    companies: companies,
   };
 }
 

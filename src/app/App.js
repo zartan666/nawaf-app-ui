@@ -1,12 +1,12 @@
 import React, {Component, PropTypes} from 'react';
-import {View,I18nManager} from 'react-native';
+import {View, I18nManager} from 'react-native';
 import {connect} from 'react-redux';
 import {ACTIONS} from './common/actions';
 import {addNavigationHelpers} from 'react-navigation';
 import Navigator from './../common/navigator';
 import AppNotification from './../app/AppNotification';
 import Splash from './../app/Splash';
-import {isRTL,locale} from './../app/common/locale';
+import {isRTL, locale} from './../app/common/locale';
 
 class App extends Component {
   static propTypes = {
@@ -15,7 +15,7 @@ class App extends Component {
 
   componentDidMount() {
     // this.props.dispatch(ACTIONS.boot());
-      I18nManager.forceRTL(true);
+    I18nManager.forceRTL(true);
   }
 
   render() {

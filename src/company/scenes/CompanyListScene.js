@@ -1,19 +1,18 @@
 /**
  @flow
  */
-import React, {Component, PropTypes} from "react";
-import {FlatList, Image, StyleSheet, Text, View} from "react-native";
-import colors from "../../common/colors";
-import Separator from "../../components/Separator";
-import SearchBar from "../components/SearchBar";
+import React, {Component, PropTypes} from 'react';
+import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
+import colors from '../../common/colors';
+import Separator from '../../components/Separator';
+import SearchBar from '../components/SearchBar';
 
 export default class CompanyListScene extends Component {
   static propTypes = {
-    companies:PropTypes.array.isRequired
+    companies: PropTypes.array.isRequired,
   };
 
-  renderItem = ({item,index}) => {
-
+  renderItem = ({item, index}) => {
     return (
       <View style={styles.companyInfoContainer}>
         <Image source={{uri: item.logo}} style={styles.companyLogo} />
@@ -25,9 +24,7 @@ export default class CompanyListScene extends Component {
         <Text style={styles.openText}>Open</Text>
 
       </View>
-
     );
-
   };
 
   render() {
@@ -36,8 +33,8 @@ export default class CompanyListScene extends Component {
       <FlatList
         data={companies}
         renderItem={this.renderItem}
-        ItemSeparatorComponent={()=><Separator />}
-        ListHeaderComponent={()=><SearchBar />}
+        ItemSeparatorComponent={() => <Separator />}
+        ListHeaderComponent={() => <SearchBar />}
         style={styles.container}
       />
     );
@@ -64,24 +61,24 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 20,
   },
-  companyInfoContainer:{
-    flexDirection:'row',
-    alignItems:'center',
-    padding:10,
-    backgroundColor:'white',
-    paddingBottom:10
+  companyInfoContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    backgroundColor: 'white',
+    paddingBottom: 10,
   },
   companyTitle: {
-    flex:1,
+    flex: 1,
     color: colors.smokeGrayDark,
     backgroundColor: 'transparent',
-    paddingHorizontal:10,
-    fontSize:17,
-    textAlign:'left'
+    paddingHorizontal: 10,
+    fontSize: 17,
+    textAlign: 'left',
   },
-  openText:{
-    color:colors.green,
-    fontWeight:'500',
-    fontSize:16
+  openText: {
+    color: colors.green,
+    fontWeight: '500',
+    fontSize: 16,
   },
 });

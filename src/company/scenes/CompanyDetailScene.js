@@ -6,7 +6,7 @@ import {Image, ScrollView, StyleSheet, View, Text} from 'react-native';
 import colors from './../../common/colors';
 import Separator from './../../components/Separator';
 import SectionHeader from '../components/SectionHeader';
-import Ionicons from "react-native-vector-icons/Ionicons";
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import {isRTL} from './../../app/common/locale';
 
 export default class CompanyDetailScene extends Component {
@@ -15,7 +15,7 @@ export default class CompanyDetailScene extends Component {
   };
 
   render() {
-    console.log('isRtl',isRTL);
+    console.log('isRtl', isRTL);
     let {company} = this.props;
 
     return (
@@ -24,8 +24,8 @@ export default class CompanyDetailScene extends Component {
         <Image
           source={{uri: company.images[0]}}
           style={styles.companyImage}
-          resizeMode="cover">
-        </Image>
+          resizeMode="cover"
+        />
 
         <View style={styles.companyInfoContainer}>
           <Image source={{uri: company.logo}} style={styles.companyLogo} />
@@ -40,7 +40,7 @@ export default class CompanyDetailScene extends Component {
 
         <View style={styles.section}>
           <View style={styles.rowContent}>
-            <View style={{flex:1}}>
+            <View style={{flex: 1}}>
               <Text style={styles.sectionTitle}>
                 Promotions
               </Text>
@@ -48,7 +48,12 @@ export default class CompanyDetailScene extends Component {
                 List available promotions
               </Text>
             </View>
-            <Ionicons name={isRTL ? "ios-arrow-back" : "ios-arrow-forward"} color={colors.smokeGrayLight} size={40} style={{height:40}} />
+            <Ionicons
+              name={isRTL ? 'ios-arrow-back' : 'ios-arrow-forward'}
+              color={colors.smokeGrayLight}
+              size={40}
+              style={{height: 40}}
+            />
           </View>
         </View>
 
@@ -73,13 +78,12 @@ export default class CompanyDetailScene extends Component {
   }
 
   renderServiceItem = (item, index) => {
-
     return (
       <View style={styles.rowContainer} key={index}>
 
         <SectionHeader title={item.name} />
 
-        {item.items.map((service,serviceIndex) => {
+        {item.items.map((service, serviceIndex) => {
           return (
             <View style={styles.rowContainer} key={serviceIndex}>
               <View style={styles.rowContent}>
@@ -89,11 +93,16 @@ export default class CompanyDetailScene extends Component {
                 <Text style={styles.itemValue}>
                   {service.price} KD
                 </Text>
-                <Ionicons name={isRTL ? "ios-arrow-back" : "ios-arrow-forward"} color={colors.smokeGrayLight} size={30} style={{paddingLeft:10, height:30}} />
+                <Ionicons
+                  name={isRTL ? 'ios-arrow-back' : 'ios-arrow-forward'}
+                  color={colors.smokeGrayLight}
+                  size={30}
+                  style={{paddingLeft: 10, height: 30}}
+                />
               </View>
               <Separator />
             </View>
-          )
+          );
         })}
 
       </View>
@@ -136,28 +145,28 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     borderWidth: 2,
     borderRadius: 20,
-    marginTop:-20
+    marginTop: -20,
   },
-  companyInfoContainer:{
-    flex:1,
-    flexDirection:'row',
-    alignItems:'center',
-    paddingHorizontal:20,
-    paddingVertical:0,
-    backgroundColor:'white',
-    paddingBottom:10,
+  companyInfoContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 0,
+    backgroundColor: 'white',
+    paddingBottom: 10,
   },
   companyTitle: {
-    flex:1,
+    flex: 1,
     color: colors.smokeGrayDark,
-    paddingHorizontal:10,
-    fontSize:17,
-    textAlign:'left'
+    paddingHorizontal: 10,
+    fontSize: 17,
+    textAlign: 'left',
   },
-  openText:{
-    color:colors.green,
-    fontWeight:'500',
-    fontSize:16,
+  openText: {
+    color: colors.green,
+    fontWeight: '500',
+    fontSize: 16,
   },
   rowContainer: {
     flex: 1,
@@ -166,13 +175,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     padding: 10,
-    alignItems:'center',
+    alignItems: 'center',
   },
   itemName: {
     color: colors.black,
     flex: 1,
-    fontWeight:'100',
-    textAlign:'left'
+    fontWeight: '100',
+    textAlign: 'left',
   },
   itemValue: {
     color: colors.smokeGrayDark,
@@ -180,16 +189,14 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 17,
     color: colors.accent,
-    textShadowColor:colors.smokeGrayLight,
-    textShadowOffset:{width:1,height:1},
-    paddingBottom:5,
-    textAlign:'left'
-
+    textShadowColor: colors.smokeGrayLight,
+    textShadowOffset: {width: 1, height: 1},
+    paddingBottom: 5,
+    textAlign: 'left',
   },
   section: {
     flex: 1,
     backgroundColor: 'white',
     marginVertical: 10,
   },
-
 });

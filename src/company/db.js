@@ -46,9 +46,4 @@ export const company = {
   ],
 };
 
-export const companies = [
-  company,
-  company,
-  company,
-  company
-];
+export const companies = [company, company, company, company];

@@ -1,11 +1,11 @@
 /**
  * @flow
  */
-import React, {Component, PropTypes} from "react";
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
-import {ACTIONS} from "./common/actions";
-import CompanyDetailScene from "./scenes/CompanyDetailScene";
+import React, {Component, PropTypes} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {ACTIONS} from './common/actions';
+import CompanyDetailScene from './scenes/CompanyDetailScene';
 import {company} from './db';
 
 class CompanyDetail extends Component {
@@ -22,7 +22,6 @@ class CompanyDetail extends Component {
 function mapDispatchToProps(dispatch) {
   return {actions: bindActionCreators({...ACTIONS}, dispatch)};
 }
-
 
 function mapStateToProps(state) {
   return {

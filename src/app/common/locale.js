@@ -8,8 +8,8 @@ import ar from './../../../assets/locale/ar';
 I18n.fallbacks = true;
 
 I18n.translations = {
-  en:en,
-  ar:ar,
+  en: en,
+  ar: ar,
 };
 
 I18n.locale = I18nManager.isRTL ? 'ar' : 'en';

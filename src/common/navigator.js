@@ -8,16 +8,19 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {StackNavigator, TabNavigator} from 'react-navigation';
 import colors from './colors';
 
-const HomeTab = StackNavigator({
-  SettingsScene: {
-    screen: Login,
-    navigationOptions: {
-      title: () => 'Home',
+const HomeTab = StackNavigator(
+  {
+    SettingsScene: {
+      screen: CompanyList,
+      navigationOptions: {
+        title: () => 'Home',
+      },
     },
   },
-},{
-  headerMode: 'screen'
-});
+  {
+    headerMode: 'screen',
+  },
+);
 
 const Tabs = TabNavigator(
   {

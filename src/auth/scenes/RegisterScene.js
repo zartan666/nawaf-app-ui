@@ -10,7 +10,7 @@ import colors from './../../common/colors';
 import NavBar from './../../components/NavBar';
 import NavButton from './../../components/NavButton';
 import Separator from './../../components/Separator';
-import {isRTL, locale} from "./../../app/common/locale";
+import {isRTL, locale} from './../../app/common/locale';
 
 export default class RegisterScene extends Component {
   static propTypes = {
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 2,
     fontWeight: '100',
-    textAlign:'left'
+    textAlign: 'left',
   },
   textCenter: {
     alignSelf: 'center',
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: 'black',
     textAlign: isRTL ? 'right' : 'left',
-    writingDirection: isRTL ?'rtl' : 'ltr',
+    writingDirection: isRTL ? 'rtl' : 'ltr',
   },
   title: {
     fontSize: 20,

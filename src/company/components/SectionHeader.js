@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingTop:25,
+    paddingTop: 25,
   },
   title: {
     fontFamily: 'BodoniSvtyTwoITCTT-BookIta',
