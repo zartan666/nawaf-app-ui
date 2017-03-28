@@ -20,7 +20,7 @@ const HomeTab = StackNavigator({
 const Tabs = TabNavigator(
   {
     PropertyTab: {
-      screen: HomeTab,
+      screen: CompanyDetail,
       navigationOptions: {
         tabBar: () => ({
           label: 'Home',

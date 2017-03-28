@@ -47,7 +47,7 @@ export default class CompanyDetailScene extends Component {
                 List available promotions
               </Text>
             </View>
-            <Ionicons name="ios-arrow-forward" color={colors.smokeGrayLight} size={40} />
+            <Ionicons name="ios-arrow-forward" color={colors.smokeGrayLight} size={40} style={{height:40}} />
           </View>
         </View>
 
@@ -72,9 +72,6 @@ export default class CompanyDetailScene extends Component {
   }
 
   renderServiceItem = (item, index) => {
-    console.log('item', item);
-
-    map(item => console.log('wa', item));
 
     return (
       <View style={styles.rowContainer} key={index}>
@@ -91,6 +88,7 @@ export default class CompanyDetailScene extends Component {
                 <Text style={styles.itemValue}>
                   {service.price} KD
                 </Text>
+                <Ionicons name="ios-arrow-forward" color={colors.smokeGrayLight} size={30} style={{paddingLeft:10, height:30}} />
               </View>
               <Separator />
             </View>
@@ -166,7 +164,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     padding: 10,
-    alignItems:'center'
+    alignItems:'center',
   },
   itemName: {
     color: colors.black,

@@ -7,22 +7,22 @@ import colors from '../../common/colors';
 
 const SectionHeader = ({title}) => {
   return (
-    <View style={styles.headerContainer}>
-      <View style={styles.headerLine} />
-      <Text style={styles.headerTitle}>{title}</Text>
-      <View style={styles.headerLine} />
+    <View style={styles.container}>
+      <View style={styles.line} />
+      <Text style={styles.title}>{title}</Text>
+      <View style={styles.line} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  headerContainer: {
+  container: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 5,
+    paddingTop:25,
   },
-  headerTitle: {
+  title: {
     fontFamily: 'BodoniSvtyTwoITCTT-BookIta',
     textAlign: 'center',
     color: colors.smokeGrayDark,
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     letterSpacing: 2,
   },
-  headerLine: {
+  line: {
     flex: 1,
     height: 0.5,
     backgroundColor: colors.smokeGrayLight,
