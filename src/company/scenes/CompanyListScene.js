@@ -76,7 +76,8 @@ const styles = StyleSheet.create({
     color: colors.smokeGrayDark,
     backgroundColor: 'transparent',
     paddingHorizontal:10,
-    fontSize:17
+    fontSize:17,
+    textAlign:'left'
   },
   openText:{
     color:colors.green,

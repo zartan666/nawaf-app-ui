@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {ACTIONS} from './common/actions';
-import LoginScene from './components/LoginScene';
+import LoginScene from './scenes/LoginScene';
 
 class Login extends Component {
   static propTypes = {
@@ -11,8 +11,8 @@ class Login extends Component {
   };
 
   state = {
-    email: '',
-    password: '',
+    email: 'admin@test.com',
+    password: 'password',
   };
 
   handleLogin = () => {

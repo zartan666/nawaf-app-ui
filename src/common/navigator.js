@@ -10,7 +10,7 @@ import colors from './colors';
 
 const HomeTab = StackNavigator({
   SettingsScene: {
-    screen: CompanyDetail,
+    screen: Login,
     navigationOptions: {
       title: () => 'Home',
     },

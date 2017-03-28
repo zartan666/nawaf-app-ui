@@ -5,7 +5,7 @@ import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {ACTIONS} from './common/actions';
-import RegisterScene from './components/RegisterScene';
+import RegisterScene from './scenes/RegisterScene';
 import {NavigationActions} from 'react-navigation';
 
 type State = {
