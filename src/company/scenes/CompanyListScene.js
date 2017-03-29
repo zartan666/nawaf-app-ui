@@ -2,7 +2,7 @@
  @flow
  */
 import React, {Component, PropTypes} from 'react';
-import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
+import {FlatList, Image, StyleSheet, Text, TouchableHighlight, View} from 'react-native';
 import colors from '../../common/colors';
 import Separator from '../../components/Separator';
 import SearchBar from '../components/SearchBar';
@@ -10,20 +10,24 @@ import SearchBar from '../components/SearchBar';
 export default class CompanyListScene extends Component {
   static propTypes = {
     companies: PropTypes.array.isRequired,
+    onItemPress:PropTypes.func.isRequired
   };
 
   renderItem = ({item, index}) => {
+    let {onItemPress} = this.props;
     return (
-      <View style={styles.companyInfoContainer}>
-        <Image source={{uri: item.logo}} style={styles.companyLogo} />
+      <TouchableHighlight onPress={()=>onItemPress()} underlayColor="transparent">
+        <View style={styles.companyInfoContainer}>
+          <Image source={{uri: item.logo}} style={styles.companyLogo} />
 
-        <Text style={styles.companyTitle}>
-          {item.name}
-        </Text>
+          <Text style={styles.companyTitle}>
+            {item.name}
+          </Text>
 
-        <Text style={styles.openText}>Open</Text>
+          <Text style={styles.openText}>Open</Text>
 
-      </View>
+        </View>
+      </TouchableHighlight>
     );
   };
 

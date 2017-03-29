@@ -14,17 +14,14 @@ class CompanyList extends Component {
     navigation: PropTypes.object.isRequired,
   };
 
+  onItemPress = () => {
+    this.props.navigation.navigate('CompanyDetailScene');
+  };
   render() {
     let {companies} = this.props;
-    return <CompanyListScene companies={companies} />;
+    return <CompanyListScene companies={companies} onItemPress={this.onItemPress} />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 function mapDispatchToProps(dispatch) {
   return {actions: bindActionCreators({...ACTIONS}, dispatch)};

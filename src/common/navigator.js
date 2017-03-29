@@ -29,6 +29,27 @@ const HomeTab = StackNavigator(
   },
 );
 
+const SearchTab = StackNavigator(
+  {
+    CompanyListScene: {
+      screen: CompanyList,
+      navigationOptions: {
+        title: () => '',
+      },
+    },
+    CompanyDetailScene: {
+      screen: CompanyDetail,
+      navigationOptions: {
+        title: () => '',
+      },
+    },
+  },
+  {
+    headerMode: 'screen',
+  },
+);
+
+
 const Tabs = TabNavigator(
   {
     HomeTab: {
@@ -47,7 +68,7 @@ const Tabs = TabNavigator(
       },
     },
     SearchTab: {
-      screen: HomeTab,
+      screen: SearchTab,
       navigationOptions: {
         tabBar: () => ({
           label: 'Search',
