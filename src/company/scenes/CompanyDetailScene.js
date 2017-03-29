@@ -2,7 +2,7 @@
  @flow
  */
 import React, {Component, PropTypes} from 'react';
-import {Image, ScrollView, StyleSheet, View, Text, TouchableHighlight} from 'react-native';
+import {Animated, Image, Dimensions, StyleSheet, View, Text, TouchableHighlight} from 'react-native';
 import colors from './../../common/colors';
 import Separator from './../../components/Separator';
 import SectionHeader from '../components/SectionHeader';
@@ -15,66 +15,114 @@ export default class CompanyDetailScene extends Component {
     onServiceItemPress:PropTypes.func.isRequired
   };
 
-  render() {
-    console.log('isRtl', isRTL);
+  state = {
+    scrollY: new Animated.Value(0),
+  };
+
+  renderImage = () => {
     let {company} = this.props;
+    let {scrollY} = this.state;
+
+    let logoScale = scrollY.interpolate({
+      inputRange: [-50, 0, 50],
+      outputRange: [1.5, 1, 1],
+    });
+
+    let logoTranslateY = scrollY.interpolate({
+      inputRange: [-150, 0, 150],
+      outputRange: [40, 0, -40],
+    });
 
     return (
-      <ScrollView style={styles.container}>
-
-        <Image
+      <View style={styles.hero}>
+        <Animated.Image
           source={{uri: company.images[0]}}
-          style={styles.companyImage}
+          style={[
+            styles.companyImage,
+            {
+              transform: [{scale: logoScale}, {translateY: logoTranslateY}],
+            },
+          ]}
           resizeMode="cover"
         />
+      </View>
+    );
+  };
 
-        <View style={styles.companyInfoContainer}>
-          <Image source={{uri: company.logo}} style={styles.companyLogo} />
 
-          <Text style={styles.companyTitle}>
-            {company.name}
-          </Text>
+  render() {
+    let {company} = this.props;
+    let {scrollY} = this.state;
 
-          <Text style={styles.openText}>Open</Text>
+    return (
+      <View style={styles.container}>
 
-        </View>
+        {
+          this.renderImage()
+        }
 
-        <View style={styles.section}>
-          <View style={styles.rowContent}>
-            <View style={{flex: 1}}>
-              <Text style={styles.sectionTitle}>
-                Promotions
+        <Animated.ScrollView style={[StyleSheet.absoluteFill]}
+                             onScroll={Animated.event(
+                               [{nativeEvent: {contentOffset: {y: scrollY}}}],
+                               {useNativeDriver: true},
+                             )}
+                             showsVerticalScrollIndicator={false}
+                             scrollEventThrottle={16}
+        >
+
+          <View style={styles.heroSpacer} />
+
+          <View style={styles.contentContainerStyle}>
+
+            <View style={styles.companyInfoContainer}>
+              <Image source={{uri: company.logo}} style={styles.companyLogo} />
+
+              <Text style={styles.companyTitle}>
+                {company.name}
               </Text>
-              <Text style={styles.itemName}>
-                List available promotions
-              </Text>
+
+              <Text style={styles.openText}>Open</Text>
+
             </View>
-            <Ionicons
-              name={isRTL ? 'ios-arrow-back' : 'ios-arrow-forward'}
-              color={colors.smokeGrayLight}
-              size={40}
-              style={{height: 40}}
-            />
+
+            <View style={styles.section}>
+              <View style={styles.rowContent}>
+                <View style={{flex: 1}}>
+                  <Text style={styles.sectionTitle}>
+                    Promotions
+                  </Text>
+                  <Text style={styles.itemName}>
+                    List available promotions
+                  </Text>
+                </View>
+                <Ionicons
+                  name={isRTL ? 'ios-arrow-back' : 'ios-arrow-forward'}
+                  color={colors.smokeGrayLight}
+                  size={40}
+                  style={{height: 40}}
+                />
+              </View>
+            </View>
+
+            <View style={styles.section}>
+              {company.facilities.map((facility, index) =>
+                this.renderFacilityItem(facility, index))}
+            </View>
+
+            <View style={styles.section}>
+              <View style={styles.rowContent}>
+                <Text style={styles.sectionTitle}>
+                  {`${company.name} Services`}
+                </Text>
+              </View>
+              {company.services.map((service, index) =>
+                this.renderServiceItem(service, index))}
+
+            </View>
+
           </View>
-        </View>
-
-        <View style={styles.section}>
-          {company.facilities.map((facility, index) =>
-            this.renderFacilityItem(facility, index))}
-        </View>
-
-        <View style={styles.section}>
-          <View style={styles.rowContent}>
-            <Text style={styles.sectionTitle}>
-              {`${company.name} Services`}
-            </Text>
-          </View>
-          {company.services.map((service, index) =>
-            this.renderServiceItem(service, index))}
-
-        </View>
-
-      </ScrollView>
+        </Animated.ScrollView>
+      </View>
     );
   }
 
@@ -135,15 +183,7 @@ export default class CompanyDetailScene extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.lightGray,
-  },
-  contentContainerStyle: {},
-  companyImage: {
-    flex: 1,
-    width: null,
-    height: 200,
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'white',
   },
   companyLogo: {
     width: 75,
@@ -205,5 +245,24 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     marginVertical: 10,
+  },
+  contentContainerStyle: {
+    backgroundColor: colors.lightGray,
+    minHeight: Dimensions.get('window').height - 250
+  },
+  hero: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 250,
+  },
+  heroSpacer: {
+    height: 250,
+    backgroundColor: 'transparent',
+  },
+  companyImage: {
+    width: Dimensions.get('window').width,
+    height: 250,
   },
 });
