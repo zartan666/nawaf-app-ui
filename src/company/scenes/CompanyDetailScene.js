@@ -10,6 +10,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {isRTL} from './../../app/common/locale';
 
 export default class CompanyDetailScene extends Component {
+
   static propTypes = {
     company: PropTypes.object.isRequired,
     onServiceItemPress:PropTypes.func.isRequired
