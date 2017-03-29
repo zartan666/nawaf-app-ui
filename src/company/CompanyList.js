@@ -17,6 +17,7 @@ class CompanyList extends Component {
   onItemPress = () => {
     this.props.navigation.navigate('CompanyDetailScene');
   };
+
   render() {
     let {companies} = this.props;
     return (

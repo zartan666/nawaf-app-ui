@@ -20,6 +20,9 @@ const HomeTab = StackNavigator(
     CompanyDetailScene: {
       screen: CompanyDetail,
     },
+    ServiceItemScene: {
+      screen: AppointmentCreate,
+    },
   },
   {
     headerMode: 'screen',
@@ -33,6 +36,9 @@ const SearchTab = StackNavigator(
     },
     CompanyDetailScene: {
       screen: CompanyDetail,
+    },
+    ServiceItemScene: {
+      screen: AppointmentCreate,
     },
   },
   {

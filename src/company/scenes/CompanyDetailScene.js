@@ -2,7 +2,7 @@
  @flow
  */
 import React, {Component, PropTypes} from 'react';
-import {Image, ScrollView, StyleSheet, View, Text} from 'react-native';
+import {Image, ScrollView, StyleSheet, View, Text, TouchableHighlight} from 'react-native';
 import colors from './../../common/colors';
 import Separator from './../../components/Separator';
 import SectionHeader from '../components/SectionHeader';
@@ -12,6 +12,7 @@ import {isRTL} from './../../app/common/locale';
 export default class CompanyDetailScene extends Component {
   static propTypes = {
     company: PropTypes.object.isRequired,
+    onServiceItemPress:PropTypes.func.isRequired
   };
 
   render() {
@@ -78,6 +79,7 @@ export default class CompanyDetailScene extends Component {
   }
 
   renderServiceItem = (item, index) => {
+    let {onServiceItemPress} = this.props;
     return (
       <View style={styles.rowContainer} key={index}>
 
@@ -85,23 +87,27 @@ export default class CompanyDetailScene extends Component {
 
         {item.items.map((service, serviceIndex) => {
           return (
-            <View style={styles.rowContainer} key={serviceIndex}>
-              <View style={styles.rowContent}>
-                <Text style={styles.itemName}>
-                  {service.name}
-                </Text>
-                <Text style={styles.itemValue}>
-                  {service.price} KD
-                </Text>
-                <Ionicons
-                  name={isRTL ? 'ios-arrow-back' : 'ios-arrow-forward'}
-                  color={colors.smokeGrayLight}
-                  size={30}
-                  style={{paddingLeft: 10, height: 30}}
-                />
+            <TouchableHighlight onPress={()=>onServiceItemPress()} underlayColor="transparent"
+                                key={serviceIndex}
+            >
+              <View style={styles.rowContainer} >
+                <View style={styles.rowContent}>
+                  <Text style={styles.itemName}>
+                    {service.name}
+                  </Text>
+                  <Text style={styles.itemValue}>
+                    {service.price} KD
+                  </Text>
+                  <Ionicons
+                    name={isRTL ? 'ios-arrow-back' : 'ios-arrow-forward'}
+                    color={colors.smokeGrayLight}
+                    size={30}
+                    style={{paddingLeft: 10, height: 30}}
+                  />
+                </View>
+                <Separator />
               </View>
-              <Separator />
-            </View>
+            </TouchableHighlight>
           );
         })}
 

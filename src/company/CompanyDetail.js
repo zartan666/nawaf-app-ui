@@ -13,9 +13,15 @@ class CompanyDetail extends Component {
     navigation: PropTypes.object.isRequired,
   };
 
+  onServiceItemPress = () => {
+    this.props.navigation.navigate('ServiceItemScene');
+  };
+
   render() {
     let {company} = this.props;
-    return <CompanyDetailScene company={company} />;
+    return <CompanyDetailScene company={company}
+                               onServiceItemPress = {this.onServiceItemPress}
+    />;
   }
 }
 
