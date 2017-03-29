@@ -2,7 +2,15 @@
  @flow
  */
 import React, {Component, PropTypes} from 'react';
-import {Animated, Image, Dimensions, StyleSheet, View, Text, TouchableHighlight} from 'react-native';
+import {
+  Animated,
+  Image,
+  Dimensions,
+  StyleSheet,
+  View,
+  Text,
+  TouchableHighlight,
+} from 'react-native';
 import colors from './../../common/colors';
 import Separator from './../../components/Separator';
 import SectionHeader from '../components/SectionHeader';
@@ -10,10 +18,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {isRTL} from './../../app/common/locale';
 
 export default class CompanyDetailScene extends Component {
-
   static propTypes = {
     company: PropTypes.object.isRequired,
-    onServiceItemPress:PropTypes.func.isRequired
+    onServiceItemPress: PropTypes.func.isRequired,
   };
 
   state = {
@@ -50,7 +57,6 @@ export default class CompanyDetailScene extends Component {
     );
   };
 
-
   render() {
     let {company} = this.props;
     let {scrollY} = this.state;
@@ -58,18 +64,16 @@ export default class CompanyDetailScene extends Component {
     return (
       <View style={styles.container}>
 
-        {
-          this.renderImage()
-        }
+        {this.renderImage()}
 
-        <Animated.ScrollView style={[StyleSheet.absoluteFill]}
-                             onScroll={Animated.event(
-                               [{nativeEvent: {contentOffset: {y: scrollY}}}],
-                               {useNativeDriver: true},
-                             )}
-                             showsVerticalScrollIndicator={false}
-                             scrollEventThrottle={16}
-        >
+        <Animated.ScrollView
+          style={[StyleSheet.absoluteFill]}
+          onScroll={Animated.event(
+            [{nativeEvent: {contentOffset: {y: scrollY}}}],
+            {useNativeDriver: true},
+          )}
+          showsVerticalScrollIndicator={false}
+          scrollEventThrottle={16}>
 
           <View style={styles.heroSpacer} />
 
@@ -136,10 +140,11 @@ export default class CompanyDetailScene extends Component {
 
         {item.items.map((service, serviceIndex) => {
           return (
-            <TouchableHighlight onPress={()=>onServiceItemPress()} underlayColor="transparent"
-                                key={serviceIndex}
-            >
-              <View style={styles.rowContainer} >
+            <TouchableHighlight
+              onPress={() => onServiceItemPress()}
+              underlayColor="transparent"
+              key={serviceIndex}>
+              <View style={styles.rowContainer}>
                 <View style={styles.rowContent}>
                   <Text style={styles.itemName}>
                     {service.name}
@@ -249,7 +254,7 @@ const styles = StyleSheet.create({
   },
   contentContainerStyle: {
     backgroundColor: colors.lightGray,
-    minHeight: Dimensions.get('window').height - 250
+    minHeight: Dimensions.get('window').height - 250,
   },
   hero: {
     position: 'absolute',

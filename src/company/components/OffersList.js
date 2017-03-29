@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   rowContainer: {
     flex: 1,
     padding: 3,
-    width: Dimensions.get('window').width / 3 ,
+    width: Dimensions.get('window').width / 3,
   },
   headerTitle: {
     fontFamily: 'BodoniSvtyTwoITCTT-BookIta',

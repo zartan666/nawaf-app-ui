@@ -26,8 +26,7 @@ export default class CompanyListScene extends Component {
       <TouchableHighlight
         onPress={() => onItemPress()}
         underlayColor="transparent"
-        key={index}
-      >
+        key={index}>
         <View style={styles.companyInfoContainer}>
           <Image source={{uri: item.logo}} style={styles.companyLogo} />
 

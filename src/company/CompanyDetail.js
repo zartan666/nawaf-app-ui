@@ -19,9 +19,12 @@ class CompanyDetail extends Component {
 
   render() {
     let {company} = this.props;
-    return <CompanyDetailScene company={company}
-                               onServiceItemPress = {this.onServiceItemPress}
-    />;
+    return (
+      <CompanyDetailScene
+        company={company}
+        onServiceItemPress={this.onServiceItemPress}
+      />
+    );
   }
 }
 
