@@ -19,9 +19,6 @@ const HomeTab = StackNavigator(
     },
     CompanyDetailScene: {
       screen: CompanyDetail,
-      navigationOptions: {
-        title: () => '',
-      },
     },
   },
   {
@@ -33,22 +30,15 @@ const SearchTab = StackNavigator(
   {
     CompanyListScene: {
       screen: CompanyList,
-      navigationOptions: {
-        title: () => '',
-      },
     },
     CompanyDetailScene: {
       screen: CompanyDetail,
-      navigationOptions: {
-        title: () => '',
-      },
     },
   },
   {
     headerMode: 'screen',
   },
 );
-
 
 const Tabs = TabNavigator(
   {

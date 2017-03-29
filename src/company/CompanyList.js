@@ -19,7 +19,9 @@ class CompanyList extends Component {
   };
   render() {
     let {companies} = this.props;
-    return <CompanyListScene companies={companies} onItemPress={this.onItemPress} />;
+    return (
+      <CompanyListScene companies={companies} onItemPress={this.onItemPress} />
+    );
   }
 }
 
