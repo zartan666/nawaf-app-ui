@@ -2,13 +2,21 @@
  @flow
  */
 import React, {Component, PropTypes} from 'react';
-import {Image, ScrollView, StyleSheet, View, Text, TextInput, TouchableHighlight} from 'react-native';
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  TouchableHighlight,
+} from 'react-native';
 import colors from './../../common/colors';
 import Separator from './../../components/Separator';
 import SectionHeader from '../components/SectionHeader';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {isRTL,locale} from './../../app/common/locale';
-import AdSwiper from "../components/AdSwiper";
+import {isRTL, locale} from './../../app/common/locale';
+import AdSwiper from '../components/AdSwiper';
 
 export default class AppointmentCreateScene extends Component {
   static propTypes = {
@@ -17,12 +25,16 @@ export default class AppointmentCreateScene extends Component {
 
   render() {
     console.log('isRtl', isRTL);
-    let {company,email} = this.props;
+    let {company, email} = this.props;
 
     return (
       <ScrollView style={styles.container}>
         <AdSwiper />
-        <View style={[styles.rowContent,{backgroundColor:'white',paddingHorizontal:20}]}>
+        <View
+          style={[
+            styles.rowContent,
+            {backgroundColor: 'white', paddingHorizontal: 20},
+          ]}>
           <Text style={styles.sectionTitle}>
             Title
           </Text>
@@ -31,13 +43,21 @@ export default class AppointmentCreateScene extends Component {
           </Text>
         </View>
 
-        <View style={[styles.rowContent,{backgroundColor:'white',paddingHorizontal:20}]}>
-          <Text style={[styles.itemValue,styles.rtlText]}>
+        <View
+          style={[
+            styles.rowContent,
+            {backgroundColor: 'white', paddingHorizontal: 20},
+          ]}>
+          <Text style={[styles.itemValue, styles.rtlText]}>
             Service Info Service Info Service Info Service Info
           </Text>
         </View>
 
-        <View style={[styles.rowContainer,{backgroundColor:'white',padding:20,marginVertical:10}]}>
+        <View
+          style={[
+            styles.rowContainer,
+            {backgroundColor: 'white', padding: 20, marginVertical: 10},
+          ]}>
           <Text style={styles.label}>{locale.t('email')}</Text>
           <TextInput
             style={[styles.textInput]}
@@ -78,10 +98,7 @@ export default class AppointmentCreateScene extends Component {
           />
           <Separator />
 
-          <TouchableHighlight
-            onPress={() => {}}
-            style={styles.button}
-          >
+          <TouchableHighlight onPress={() => {}} style={styles.button}>
             <Text style={styles.buttonText}>Request Appointment</Text>
           </TouchableHighlight>
 
@@ -90,7 +107,6 @@ export default class AppointmentCreateScene extends Component {
       </ScrollView>
     );
   }
-
 }
 
 const styles = StyleSheet.create({
@@ -154,7 +170,7 @@ const styles = StyleSheet.create({
     color: colors.smokeGrayDark,
   },
   sectionTitle: {
-    flex:1,
+    flex: 1,
     fontSize: 17,
     color: colors.accent,
     textShadowColor: colors.smokeGrayLight,
@@ -167,8 +183,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     marginVertical: 10,
   },
-  rtlText:{
-    textAlign:'left'
+  rtlText: {
+    textAlign: 'left',
   },
   label: {
     fontSize: 12,
@@ -189,17 +205,17 @@ const styles = StyleSheet.create({
     textAlign: isRTL ? 'right' : 'left',
     writingDirection: isRTL ? 'rtl' : 'ltr',
   },
-  button:{
-    backgroundColor:colors.accent,
-    padding:10,
-    borderRadius:20,
-    marginVertical:20
+  button: {
+    backgroundColor: colors.accent,
+    padding: 10,
+    borderRadius: 20,
+    marginVertical: 20,
   },
-  buttonText:{
-    color:'white',
-    opacity:.9,
-    textAlign:'center',
-    fontWeight:'500',
-    fontSize:18
-  }
+  buttonText: {
+    color: 'white',
+    opacity: 0.9,
+    textAlign: 'center',
+    fontWeight: '500',
+    fontSize: 18,
+  },
 });

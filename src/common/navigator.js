@@ -11,10 +11,16 @@ import colors from './colors';
 
 const HomeTab = StackNavigator(
   {
-    SettingsScene: {
-      screen: AppointmentCreate,
+    HomeScene: {
+      screen: Home,
       navigationOptions: {
-        title: () => 'Home',
+        title: () => 'iBooky',
+      },
+    },
+    CompanyDetailScene: {
+      screen: CompanyDetail,
+      navigationOptions: {
+        title: () => '',
       },
     },
   },
@@ -33,6 +39,36 @@ const Tabs = TabNavigator(
           icon: ({tintColor, focused}) => (
             <Ionicons
               name={focused ? 'ios-home' : 'ios-home-outline'}
+              size={26}
+              style={{color: focused ? colors.accent : colors.smokeGrayDark}}
+            />
+          ),
+        }),
+      },
+    },
+    SearchTab: {
+      screen: HomeTab,
+      navigationOptions: {
+        tabBar: () => ({
+          label: 'Search',
+          icon: ({tintColor, focused}) => (
+            <Ionicons
+              name={focused ? 'ios-search' : 'ios-search-outline'}
+              size={26}
+              style={{color: focused ? colors.accent : colors.smokeGrayDark}}
+            />
+          ),
+        }),
+      },
+    },
+    SettingsTab: {
+      screen: HomeTab,
+      navigationOptions: {
+        tabBar: () => ({
+          label: 'Settings',
+          icon: ({tintColor, focused}) => (
+            <Ionicons
+              name={focused ? 'ios-settings' : 'ios-settings-outline'}
               size={26}
               style={{color: focused ? colors.accent : colors.smokeGrayDark}}
             />

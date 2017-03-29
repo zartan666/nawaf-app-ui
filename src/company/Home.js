@@ -13,22 +13,14 @@ class Home extends Component {
     navigation: PropTypes.object.isRequired,
   };
 
+  onItemPress = () => {
+    this.props.navigation.navigate('CompanyDetailScene');
+  };
+
   render() {
-    return (
-      <View style={styles.container}>
-
-        <HomeScene />
-
-      </View>
-    );
+    return <HomeScene onItemPress={this.onItemPress} />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 function mapDispatchToProps(dispatch) {
   return {actions: bindActionCreators({...ACTIONS}, dispatch)};

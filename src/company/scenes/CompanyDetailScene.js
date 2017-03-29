@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     color: colors.smokeGrayDark,
   },
   sectionTitle: {
-    flex:1,
+    flex: 1,
     fontSize: 17,
     color: colors.accent,
     textShadowColor: colors.smokeGrayLight,

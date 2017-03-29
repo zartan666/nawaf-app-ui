@@ -7,11 +7,13 @@ import AdSwiper from './../components/AdSwiper';
 import OffersList from './../components/OffersList';
 
 export default class HomeScene extends Component {
-  static propTypes = {};
-
-  state = {};
+  static propTypes = {
+    onItemPress: PropTypes.func.isRequired,
+  };
 
   render() {
+    let {onItemPress} = this.props;
+
     return (
       <ScrollView
         style={styles.container}
@@ -24,6 +26,7 @@ export default class HomeScene extends Component {
             {title: 'Company B'},
             {title: 'Company C'},
           ]}
+          onItemPress={onItemPress}
         />
         <OffersList
           title="Hospitals &amp; Clinic"
@@ -32,6 +35,7 @@ export default class HomeScene extends Component {
             {title: 'Company B'},
             {title: 'Company C'},
           ]}
+          onItemPress={onItemPress}
         />
         <OffersList
           title="Car Service"
@@ -40,6 +44,7 @@ export default class HomeScene extends Component {
             {title: 'Company B'},
             {title: 'Company C'},
           ]}
+          onItemPress={onItemPress}
         />
 
       </ScrollView>
